@@ -270,21 +270,21 @@ const Front = () => {
             <h3>The Best Selling Gamemode</h3>
             <p>GIFT CARD $150</p>
           </div>
-          <img src="/src/assets/controller.png" alt="Game Controller" />
+          <img src="/assets/controller.png" alt="Game Controller" />
         </div>
         <div className="promo-card" style={{ backgroundColor: '#1e293b' }}>
           <div className="promo-text light">
             <h3>Get Deal on Laptops</h3>
             <p>TODAY’S SUPER OFFER</p>
           </div>
-          <img src="/src/assets/laptop.png" alt="Laptop" />
+          <img src="/assets/laptop.png" alt="Laptop" />
         </div>
         <div className="promo-card" style={{ backgroundColor: '#6366f1' }}>
           <div className="promo-text light">
             <h3>Samsung Smartphones</h3>
             <p>UP TO 45% OFF</p>
           </div>
-          <img src="/src/assets/mobile.png" alt="Samsung Devices" />
+          <img src="/assets/mobile.png" alt="Samsung Devices" />
         </div>
       </div>
 
@@ -329,14 +329,14 @@ const Front = () => {
             <h3>The Best Selling Gamemode</h3>
             <p>GIFT CARD $150</p>
           </div>
-          <img src="/src/assets/banner-4.jpg" alt="Game Controller" />
+          <img src="/assets/banner-4.jpg" alt="Game Controller" />
         </div>
         <div className="promo2-card" style={{ backgroundColor: '#1e293b' }}>
           <div className="promo2-text light">
             <h3>Get Deal on Laptops</h3>
             <p>TODAY’S SUPER OFFER</p>
           </div>
-          <img src="/src/assets/banner-5.jpg" alt="Laptop" />
+          <img src="/assets/banner-5.jpg" alt="Laptop" />
         </div>
         
       </div>
@@ -428,7 +428,7 @@ const Front = () => {
 
 {/* 50% OFF Promo Banner */}
 <div className="promo-50-off">
-  <img src="/src/assets/banner-6.jpg" alt="Speakers Promo" className="promo-bg-img" />
+  <img src="/assets/banner-6.jpg" alt="Speakers Promo" className="promo-bg-img" />
   <div className="promo-content">
     <div className="promo-text-area">
       <h3>50% OFF</h3>
