@@ -91,7 +91,7 @@ const Front = () => {
       img: watch2,
       tag: "10% OFF",
       category: "Smart Watches",
-      title: "Skill Star White Leather Smart Watch",
+      title: "Skill S tar White Leather Smart Watch",
       price: 180,
       original: 200,
       rating: 3,
