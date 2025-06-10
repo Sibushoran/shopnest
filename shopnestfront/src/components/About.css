@@ -388,51 +388,94 @@ body {
   color: #666;
   font-size: 14px;
 }
-/* Responsive Design */
-@media (max-width: 1200px) {
+/* Tablets (up to 1024px) */
+@media (max-width: 1024px) {
+  .about-card h2,
+  .about-card p {
+    transform: translateY(-200px);
+    font-size: 36px;
+    margin-left: 0;
+  }
+
   .text-side {
-    padding-left: 100px;
+    padding-left: 60px;
   }
 
   .image-side {
-    margin-right: 100px;
+    margin-right: 60px;
   }
 
-  .video-left {
-    width: 100%;
-  }
-
+  .video-left,
   .video-right {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .review-heading {
+    margin-left: 0;
+    font-size: 26px;
+  }
+
+  .review-link {
     margin-right: 0;
   }
 
-  .brand-image {
-    width: 150px;
+  .icon-info-section {
+    padding: 40px;
   }
 }
 
-@media (max-width: 992px) {
-  .about-card h2,
-  .about-card p,
-  .last-card h3 {
-    transform: translateY(-150px);
-    font-size: 32px;
+/* Mobile (up to 768px) */
+@media (max-width: 768px) {
+  .about-card {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .about-card img {
+    height: 280px;
+  }
+
+  .about-card h2 {
+    font-size: 28px;
+    transform: translateY(-160px);
+    margin-left: 0;
+  }
+
+  .about-card p {
+    font-size: 14px;
+    transform: translateY(-160px);
+    margin-left: 0;
   }
 
   .text-image-section {
     flex-direction: column;
+    padding: 20px;
+  }
+
+  .text-side {
+    padding: 0;
+    transform: none;
     text-align: center;
   }
 
-  .text-side,
+  .text-side h4 {
+    font-size: 24px;
+  }
+
   .image-side {
-    padding: 0 20px;
-    margin: 20px 0;
+    margin: 20px 0 0;
+  }
+
+  .image-side img {
+    width: 100%;
+    max-width: 100%;
   }
 
   .video-section {
     flex-direction: column;
-    padding: 30px 20px;
+    margin-left: 0;
+    padding: 20px;
   }
 
   .video-left {
@@ -442,93 +485,47 @@ body {
 
   .video-thumbnail {
     width: 100%;
-    height: auto;
   }
 
-  .review-heading {
-    margin-left: 0;
-    text-align: center;
-  }
-
-  .review-link {
-    margin-right: 0;
-  }
-
-  .icon-info-section {
-    flex-direction: column;
-    padding: 30px 20px;
-  }
-
-  .icon-info-box {
-    justify-content: center;
-    text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-card h2 {
-    font-size: 28px;
-    margin-left: 0;
-  }
-
-  .about-card p {
-    font-size: 16px;
-    margin-left: 0;
-  }
-
-  .about-card img,
-  .last-card img {
-    height: auto;
-  }
-
-  .text-side h4 {
-    font-size: 24px;
+  .play-icon {
+    font-size: 36px;
+    padding: 8px 20px;
   }
 
   .video-right h2 {
     font-size: 24px;
   }
 
-  .video-right p,
-  .text-side p {
+  .video-right p {
     font-size: 14px;
   }
 
-  .review-card-box {
-    width: 90%;
+  .brand-image {
+    width: 160px;
   }
 
-  .brand-image {
-    width: 120px;
+  .review-card-box {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
   }
 
   .last-card h3 {
     font-size: 24px;
-    transform: translateY(-100px);
+    transform: translateY(-130px);
     margin-left: 0;
   }
-}
 
-@media (max-width: 576px) {
-  .about-card {
+  .icon-info-section {
+    flex-direction: column;
     padding: 20px;
   }
 
-  .text-image-section {
-    padding: 10px;
-  }
-
-  .video-section {
-    padding: 20px;
-  }
-
-  .video-right h2 {
-    font-size: 20px;
-  }
-
-  .video-right button,
-  .text-side button {
-    width: 100%;
+  .icon-info-box {
+    max-width: 100%;
+    flex-direction: row;
+    text-align: left;
+    justify-content: flex-start;
   }
 
   .icon-info-box i {
@@ -542,5 +539,52 @@ body {
 
   .icon-info-box p {
     font-size: 13px;
+  }
+}
+
+/* Small Phones (up to 480px) */
+@media (max-width: 480px) {
+  .about-card img {
+    height: 200px;
+  }
+
+  .about-card h2 {
+    font-size: 22px;
+    transform: translateY(-120px);
+  }
+
+  .about-card p {
+    font-size: 13px;
+    transform: translateY(-120px);
+  }
+
+  .text-side h4 {
+    font-size: 20px;
+  }
+
+  .text-side p,
+  .video-right p {
+    font-size: 13px;
+  }
+
+  .video-right h2 {
+    font-size: 20px;
+  }
+
+  .brand-image {
+    width: 130px;
+  }
+
+  .review-heading {
+    font-size: 22px;
+  }
+
+  .review-link {
+    font-size: 13px;
+  }
+
+  .last-card h3 {
+    font-size: 20px;
+    transform: translateY(-100px);
   }
 }

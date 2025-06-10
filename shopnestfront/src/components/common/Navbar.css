@@ -223,80 +223,178 @@
 .premium-search-btn:hover svg {
   transform: scale(1.1);
 }
-/* Responsive dropdown menu */
+/* ---------- Mobile Optimizations ---------- */
 @media (max-width: 768px) {
-  .navbar-nav .dropdown-menu {
-    min-width: 100%;
-    position: static;
-    box-shadow: none;
-    border-radius: 0;
-    animation: none;
-    padding: 0.25rem 0;
+  /* Navbar layout changes */
+  .navbar-nav {
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--royal-base);
+    border-radius: 12px;
+    padding: 1rem;
   }
 
-  .navbar-nav .dropdown-item {
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
+  .navbar-nav .nav-item {
+    margin-bottom: 12px;
   }
 
   .navbar-nav .nav-link {
     font-size: 1rem;
-    padding: 0.6rem 1rem;
-    text-align: left;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-nav .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    box-shadow: none;
+    background-color: #fff;
+    margin-top: 0.5rem;
     width: 100%;
   }
 
-  .navbar-nav .nav-link.bg-white {
-    margin: 0.3rem 0;
-    width: 100%;
+  .navbar-nav .dropdown-item {
+    font-size: 1rem;
+    padding: 0.75rem;
   }
 
+  /* Logo center + scale down */
+  .shopnest-logo {
+    font-size: 1.8rem;
+    text-align: center;
+    display: block;
+    margin: 0 auto 15px;
+  }
+
+  /* Search bar full width */
   .premium-search-bar {
-    max-width: 100%;
     flex-direction: row;
-    margin: 0.5rem 1rem;
-    border-radius: 40px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 20px;
   }
 
   .premium-search-input {
-    font-size: 0.9rem;
     padding: 0.6rem 1rem;
+    font-size: 0.95rem;
   }
 
   .premium-search-btn {
     padding: 0.6rem 0.9rem;
   }
 
-  .shopnest-logo {
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-    text-align: center;
-    margin: 0 auto;
-    padding: 0.4rem;
+  .premium-search-btn svg {
+    font-size: 1.1rem;
+  }
+
+  /* Login button mobile style */
+  .btn-outline-light {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 0.95rem;
+    border-radius: 30px;
+    margin-top: 10px;
   }
 }
+@media (max-width: 768px) {
+  /* Center logo and add breathing space */
+  .shopnest-logo {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 0 auto 1rem;
+    display: block;
+  }
 
-/* Ultra small screens */
-@media (max-width: 480px) {
+  /* Stack nav links vertically */
+  .navbar-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+    padding: 1rem 0;
+  }
+
+  .navbar-nav .nav-item {
+    text-align: center;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(6px);
+  }
+
+  /* Dropdown menu - full width and clean */
+  .navbar-nav .dropdown-menu {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+  }
+
   .navbar-nav .dropdown-item {
+    padding: 0.75rem;
     font-size: 0.95rem;
-    padding: 0.65rem 1rem;
+    text-align: center;
+    color: var(--royal-base);
+  }
+
+  .navbar-nav .dropdown-item:hover {
+    background-color: #f2d6e6;
+    color: #6a2c70;
+  }
+
+  /* Mobile search bar - full width + padding */
+  .premium-search-bar {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 1rem;
+    padding: 0 1rem;
+    border-radius: 12px;
   }
 
   .premium-search-input {
-    padding: 0.5rem 0.8rem;
-  }
-
-  .premium-search-btn svg {
+    padding: 0.65rem 1rem;
     font-size: 1rem;
   }
 
-  .btn-outline-light {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.85rem;
+  .premium-search-btn {
+    padding: 0.65rem 0.9rem;
   }
 
-  .shopnest-logo {
-    font-size: 1.4rem;
+  /* Login button full width */
+  .btn-outline-light {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(176, 58, 100, 0.3);
+  }
+}
+.navbar-nav .nav-link:active,
+.navbar-nav .dropdown-item:active,
+.btn-outline-light:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+.navbar-nav .dropdown-menu {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
