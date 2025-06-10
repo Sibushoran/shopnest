@@ -250,9 +250,7 @@ const Navbar = () => {
               <Link to="/news" className="text-white d-block py-1">
                 News
               </Link>
-              <Link to="/News" className="text-white d-block py-1">
-                Newss
-              </Link>
+              
             </li>
             <li>
               <Link to="/contact" className="text-white d-block py-1">
