@@ -352,7 +352,7 @@ const Front = () => {
         category: 'Smart Watches',
         price: '$145.00–$160.00',
         rating: 2,
-        image: 'src/assets/product-13-1.jpg'
+        image: '/assets/product-13-1.jpg'
       },
       {
         title: 'Skill Star High Speed Mouse',
@@ -360,7 +360,7 @@ const Front = () => {
         price: '$80.00',
         oldPrice: '$100.00',
         rating: 0,
-        image: 'src/assets/product-20-1.jpg'
+        image: '/assets/product-20-1.jpg'
       },
       {
         title: 'Business High Speed Water...',
@@ -368,42 +368,42 @@ const Front = () => {
         price: '$80.00',
         oldPrice: '$100.00',
         rating: 0,
-        image: 'src/assets/product-19-1.jpg'
+        image: '/assets/product-19-1.jpg'
       },
       {
         title: 'Gucci Kingston HyperX Core',
         category: 'HeadPhone',
         price: '$250.00–$300.00',
         rating: 0,
-        image: 'src/assets/product-16-1.jpg'
+        image: '/assets/product-16-1.jpg'
       },
       {
         title: 'Right Check Mobile Drum...',
         category: 'Speakers',
         price: '$74.55–$88.00',
         rating: 3,
-        image: 'src/assets/product-14-1.jpg'
+        image: '/assets/product-14-1.jpg'
       },
       {
         title: 'Still Star Home Sound Device',
         category: 'Sound Devices',
         price: '$250.00',
         rating: 0,
-        image: 'src/assets/product-18-1.jpg'
+        image: '/assets/product-18-1.jpg'
       },
       {
         title: 'Fechadura Smart de...',
         category: 'TV & AV',
         price: '$140.00–$200.00',
         rating: 0,
-        image: 'src/assets/product-21-1.jpg'
+        image: '/assets/product-21-1.jpg'
       },
       {
         title: 'Armani Jeans Hight Quality...',
         category: 'TV & AV',
         price: '$400.00',
         rating: 0,
-        image: 'src/assets/tv.jpg'
+        image: '/assets/tv.jpg'
       },
     ].map((product, index) => (
       <div key={index} className="product-card">
