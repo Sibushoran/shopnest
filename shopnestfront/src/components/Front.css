@@ -11,215 +11,769 @@
   }
   
   /* === Page Wrapper === */
-  .front-page {
-    padding: 40px 60px;
+ .front-page {
+            padding: 0px 60px; /* Default padding for larger screens */
+            background: var(--light-bg);
+            box-sizing: border-box;
+            font-family: var(--font-main);
+        }
+
+        /* --- Hero Banner Section --- */
+        .hero-banner-section {
+            display: flex;
+            gap: 20px;
+            padding: 40px 60px; /* Default padding */
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+            align-items: stretch; /* Ensures banners stretch to fill height */
+        }
+
+        .large-banner {
+            flex: 2; /* Takes up more space on large screens */
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #ddd; /* Placeholder background */
+            min-height: 300px; /* Minimum height to ensure visibility */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+        }
+
+        .large-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers the area without distortion */
+            display: block; /* Removes extra space below image */
+        }
+
+        /* Overlay for large banner content - adjust opacity for desired effect */
+        .large-banner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); /* Gradient overlay */
+            z-index: 0;
+        }
+
+        .large-banner .banner-content {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            color: white;
+            max-width: 400px; /* Limits content width */
+            z-index: 1; /* Ensures content is above overlay */
+            padding: 20px; /* Added padding for content inside banner */
+            box-sizing: border-box;
+        }
+
+        .large-banner .tagline {
+            color: var(--highlight-yellow);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .large-banner h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.2; /* Improves readability */
+        }
+
+        .large-banner p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .large-banner button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 12px 28px; /* Slightly larger padding */
+            font-weight: bold;
+            border-radius: 50px; /* Pill-shaped button */
+            cursor: pointer;
+            transition: all 0.3s ease; /* Smooth transition for hover effects */
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Button shadow */
+        }
+
+        .large-banner button:hover {
+            background: var(--highlight-yellow); /* Change background on hover */
+            color: #333; /* Darker text on hover */
+            transform: translateY(-3px); /* Slight lift on hover */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .side-banners {
+            flex: 1; /* Takes up less space on large screens */
+            display: flex;
+            flex-direction: column; /* Stacks small banners vertically */
+            gap: 20px;
+        }
+
+        .small-banner {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 50%; /* Each small banner takes half the height of the side container */
+            min-height: 200px; /* Minimum height for small banners */
+            background-color: #eee; /* Placeholder background */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+        }
+
+        .small-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Default overlay for small banner content (can be overridden by specific classes) */
+        .small-banner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 100%); /* Subtle gradient */
+            z-index: 0;
+            transition: background 0.3s ease; /* Smooth transition for overlay changes */
+        }
+
+        /* Specific styles for .orange small-banner */
+        .small-banner.orange::after {
+            background: linear-gradient(to bottom, rgba(249,115,22,0.6) 0%, rgba(249,115,22,0.2) 100%); /* Orange gradient */
+        }
+
+        /* Specific styles for .dark small-banner */
+        .small-banner.dark::after {
+            background: linear-gradient(to bottom, rgba(31,41,55,0.7) 0%, rgba(31,41,55,0.3) 100%); /* Dark gradient */
+        }
+
+        .small-banner .banner-content {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            z-index: 1;
+            padding-right: 20px; /* Ensure text doesn't touch the edge */
+        }
+
+        .small-banner .label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            padding: 4px 10px; /* Slightly more padding */
+            border-radius: 4px;
+            color: white;
+            text-transform: uppercase;
+            background-color: rgba(255,255,255,0.2); /* Semi-transparent background */
+            backdrop-filter: blur(2px); /* Slight blur effect */
+        }
+
+        /* Specific label colors - ensure they stand out on their respective banners */
+        .small-banner.orange .label {
+            background-color: var(--color-orange);
+        }
+        .small-banner.dark .label {
+            background-color: var(--color-dark);
+        }
+
+
+        .small-banner h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .small-banner a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            display: inline-block; /* Allows transform to work */
+        }
+
+        .small-banner a:hover {
+            opacity: 1;
+            text-decoration: underline;
+            transform: translateX(5px); /* Slight right shift on hover */
+        }
+
+        /* --- Responsive Adjustments --- */
+
+        /* Tablets and smaller desktops (768px to 1024px) */
+        @media (max-width: 1024px) {
+            .front-page {
+                padding: 0px 30px;
+            }
+            .hero-banner-section {
+                padding: 30px 30px;
+                flex-direction: column; /* Stack banners vertically */
+            }
+            .large-banner {
+                flex: none; /* Remove flex sizing */
+                width: 100%; /* Take full width */
+                min-height: 250px;
+            }
+            .large-banner .banner-content {
+                top: 15%;
+                left: 5%;
+                max-width: 90%;
+            }
+            .large-banner h2 {
+                font-size: 30px;
+            }
+            .side-banners {
+                flex: none; /* Remove flex sizing */
+                width: 100%; /* Take full width */
+                flex-direction: row; /* Keep small banners side-by-side on tablets */
+                height: auto; /* Allow height to adjust */
+            }
+            .small-banner {
+                width: 50%; /* Each small banner takes half width */
+                height: 200px; /* Fixed height for small banners */
+                min-height: auto;
+            }
+            .small-banner:first-child {
+                margin-right: 10px; /* Add some space between them if needed */
+            }
+        }
+
+        /* Mobile devices (up to 767px) */
+        @media (max-width: 767px) {
+            .front-page {
+                padding: 0px 15px; /* Smaller padding for mobile */
+            }
+            .hero-banner-section {
+                padding: 20px 15px; /* Smaller padding for mobile */
+                flex-direction: column; /* Ensure stacking */
+                gap: 15px; /* Slightly smaller gap */
+            }
+            .large-banner {
+                min-height: 200px; /* Adjust min height for mobile */
+            }
+            .large-banner .banner-content {
+                top: 10%; /* Adjust position for mobile */
+                left: 5%;
+                max-width: 90%;
+                padding: 15px;
+            }
+            .large-banner .tagline {
+                font-size: 12px;
+                margin-bottom: 8px;
+            }
+            .large-banner h2 {
+                font-size: 24px; /* Smaller font size for mobile */
+                margin-bottom: 8px;
+            }
+            .large-banner p {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+            .large-banner button {
+                padding: 8px 18px;
+                font-size: 14px;
+            }
+            .side-banners {
+                flex-direction: column; /* Stack small banners vertically on mobile */
+                gap: 15px;
+            }
+            .small-banner {
+                width: 100%; /* Full width for small banners on mobile */
+                height: 180px; /* Fixed height for small banners */
+                min-height: auto;
+            }
+            .small-banner .banner-content {
+                top: 15px;
+                left: 15px;
+                padding-right: 15px;
+            }
+            .small-banner .label {
+                font-size: 10px;
+                padding: 3px 6px;
+            }
+            .small-banner h4 {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+            .small-banner a {
+                font-size: 12px;
+            }
+        }
+  
+  /* === Categories Section === */
+
+/* CSS Variables for consistent styling */
+:root {
+    --light-bg: #f5f5f5;
+    --highlight-yellow: #facc15; /* A bright yellow for highlights */
+    --primary-red: #ef4444; /* A vibrant red for labels */
+    --font-main: 'Inter', sans-serif; /* Main font family */
+    --color-orange: #f97316; /* Tailwind orange-500 */
+    --color-dark: #1f2937; /* Tailwind gray-800 */
+    --text-color: #1f2937; /* Dark text for general content */
+    --subtext-color: #6b7280; /* Gray text for secondary information */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--light-bg);
+    line-height: 1.6; /* Improved readability */
+    color: #333;
+}
+
+/* --- Front Page Container --- */
+.front-page {
+    padding: 0px 60px; /* Default padding for larger screens */
     background: var(--light-bg);
     box-sizing: border-box;
     font-family: var(--font-main);
-  }
-  
-  /* === Hero Banner Section === */
-  .hero-banner-section {
+}
+
+/* --- Hero Banner Section --- */
+.hero-banner-section {
     display: flex;
     gap: 20px;
-    padding: 40px 60px;
-    flex-wrap: wrap;
-    align-items: stretch;
-  }
-  
-  .large-banner {
-    flex: 2;
+    padding: 40px 60px; /* Default padding */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    align-items: stretch; /* Ensures banners stretch to fill height */
+}
+
+.large-banner {
+    flex: 2; /* Takes up more space on large screens */
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    background-color: #ddd;
-  }
-  
-  .large-banner img {
+    background-color: #ddd; /* Placeholder background */
+    min-height: 300px; /* Minimum height to ensure visibility */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.large-banner img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-  }
-  
-  .large-banner::after {
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    display: block; /* Removes extra space below image */
+}
+
+/* Overlay for large banner content - adjust opacity for desired effect */
+.large-banner::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+    background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); /* Gradient overlay */
     z-index: 0;
-  }
-  
-  .large-banner .banner-content {
+}
+
+.large-banner .banner-content {
     position: absolute;
     top: 20%;
     left: 10%;
     color: white;
-    max-width: 400px;
-    z-index: 1;
-  }
-  
-  .large-banner .tagline {
+    max-width: 400px; /* Limits content width */
+    z-index: 1; /* Ensures content is above overlay */
+    padding: 20px; /* Added padding for content inside banner */
+    box-sizing: border-box;
+}
+
+.large-banner .tagline {
     color: var(--highlight-yellow);
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 12px;
-  }
-  
-  .large-banner h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.large-banner h2 {
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 10px;
-  }
-  
-  .large-banner p {
+    line-height: 1.2; /* Improves readability */
+}
+
+.large-banner p {
     margin-bottom: 20px;
-  }
-  
-  .large-banner button {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.large-banner button {
     background: black;
     color: white;
     border: none;
-    padding: 10px 24px;
+    padding: 12px 28px; /* Slightly larger padding */
     font-weight: bold;
-    border-radius: 50px;
+    border-radius: 50px; /* Pill-shaped button */
     cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .large-banner button:hover {
-    background: white;
-    color: black;
-  }
-  
-  .side-banners {
-    flex: 1;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Button shadow */
+}
+
+.large-banner button:hover {
+    background: var(--highlight-yellow); /* Change background on hover */
+    color: #333; /* Darker text on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.side-banners {
+    flex: 1; /* Takes up less space on large screens */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stacks small banners vertically */
     gap: 20px;
-  }
-  
-  .small-banner {
+}
+
+.small-banner {
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    height: 50%;
-    min-height: 200px;
-  }
-  
-  .small-banner img {
+    height: 50%; /* Each small banner takes half the height of the side container */
+    min-height: 200px; /* Minimum height for small banners */
+    background-color: #eee; /* Placeholder background */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.small-banner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  
-  .small-banner .banner-content {
+    display: block;
+}
+
+/* Default overlay for small banner content (can be overridden by specific classes) */
+.small-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 100%); /* Subtle gradient */
+    z-index: 0;
+    transition: background 0.3s ease; /* Smooth transition for overlay changes */
+}
+
+/* Specific styles for .orange small-banner */
+.small-banner.orange::after {
+    background: linear-gradient(to bottom, rgba(249,115,22,0.6) 0%, rgba(249,115,22,0.2) 100%); /* Orange gradient */
+}
+
+/* Specific styles for .dark small-banner */
+.small-banner.dark::after {
+    background: linear-gradient(to bottom, rgba(31,41,55,0.7) 0%, rgba(31,41,55,0.3) 100%); /* Dark gradient */
+}
+
+.small-banner .banner-content {
     position: absolute;
     top: 20px;
     left: 20px;
     color: white;
-  }
-  
-  .small-banner .label {
+    z-index: 1;
+    padding-right: 20px; /* Ensure text doesn't touch the edge */
+}
+
+.small-banner .label {
     display: inline-block;
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 6px;
-    padding: 4px 8px;
+    padding: 4px 10px; /* Slightly more padding */
     border-radius: 4px;
     color: white;
     text-transform: uppercase;
-  }
-  
-  .small-banner .label.blue {
-    background-color: #2563eb;
-  }
-  
-  .small-banner .label.red {
-    background-color: var(--primary-red);
-  }
-  
-  .small-banner h4 {
+    background-color: rgba(255,255,255,0.2); /* Semi-transparent background */
+    backdrop-filter: blur(2px); /* Slight blur effect */
+}
+
+/* Specific label colors - ensure they stand out on their respective banners */
+.small-banner.orange .label {
+    background-color: var(--color-orange);
+}
+.small-banner.dark .label {
+    background-color: var(--color-dark);
+}
+
+
+.small-banner h4 {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 10px;
-  }
-  
-  .small-banner a {
-    text-decoration: underline;
+    line-height: 1.3;
+}
+
+.small-banner a {
+    text-decoration: none;
     color: white;
     font-size: 14px;
     font-weight: 500;
-  }
-  
-  /* === Categories Section === */
-  .categories-section {
-    margin-bottom: 60px;
-  }
-  
-  .categories-section h2 {
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: inline-block; /* Allows transform to work */
+}
+
+.small-banner a:hover {
+    opacity: 1;
+    text-decoration: underline;
+    transform: translateX(5px); /* Slight right shift on hover */
+}
+
+/* --- Categories Section --- */
+.categories-section {
+    margin: 60px; /* Margin to separate from other sections */
+    padding: 40px; /* Inner padding for the section */
+    background-color: white; /* White background for the section */
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Lighter shadow */
+}
+
+.categories-section h2 {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 24px;
     color: var(--text-color);
-    text-align: left;
-  }
-  
-  .categories-grid {
-    display: flex;
+    text-align: left; /* Aligned to the left as per new CSS */
+    padding-left: 20px; /* Padding for the title to align with cards */
+}
+
+.categories-grid {
+    display: flex; /* Changed to flex for the specific width calculation */
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-  }
-  
-  .category-card {
+    gap: 20px; /* Gap between cards */
+    justify-content: flex-start; /* Align cards to the start, allows wrapping */
+}
+
+.category-card {
     background: white;
     border-radius: 16px;
     text-align: center;
     padding: 20px;
-    width: calc(14.28% - 20px); /* 7 per row */
+    /* Calculate width for 7 items per row with 20px gap */
+    width: calc(14.28% - 17.14px); /* (100% / 7) - (gap * (6/7)) -> (100/7) - (20 * 6/7) */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
-  }
-  
-  .category-card:hover {
+    display: flex; /* For internal alignment of image and text */
+    flex-direction: column;
+    align-items: center;
+}
+
+.category-card:hover {
     transform: translateY(-5px);
-  }
-  
-  .category-card img {
-    width: 80px;
-    height: 80px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* More pronounced shadow on hover */
+}
+
+.category-card img {
+    width: 100px; /* Adjusted size for category icons/images */
+    height: 100px;
     object-fit: contain;
     margin-bottom: 10px;
-  }
-  
-  .category-card h4,
-  .category-card p {
-    margin-top: 8px;
-  }
-  
-  .category-card h4 {
+    border-radius: 8px; /* Slightly rounded corners for images */
+    background-color: #f0f4f8; /* Light background for images */
+    padding: 10px; /* Padding inside image container */
+}
+
+.category-card h4 {
     font-size: 16px;
     font-weight: 600;
-  }
-  
-  .category-card p {
+    color: var(--text-color);
+    margin-top: 8px; /* Adjusted margin */
+    margin-bottom: 4px;
+}
+
+.category-card p {
     font-size: 13px;
     color: var(--subtext-color);
-  }
-  
-  /* === Deal of the Day Section === */
-  .deal-box {
+    margin: 0; /* Reset margin */
+}
+
+/* --- Deal of the Day Section --- */
+.deal-box {
     position: relative;
     background-color: #000;
     color: white;
     border-radius: 16px;
-    width: 300px;
-    height: 370px;
+    width: 300px; /* Fixed width as per your CSS */
+    height: 370px; /* Fixed height as per your CSS */
     text-align: center;
     overflow: hidden;
-  }
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Tablets and smaller desktops (768px to 1024px) */
+@media (max-width: 1024px) {
+    .front-page {
+        padding: 0px 30px;
+    }
+    .hero-banner-section {
+        padding: 30px 30px;
+        flex-direction: column; /* Stack banners vertically */
+    }
+    .large-banner {
+        flex: none;
+        width: 100%;
+        min-height: 250px;
+    }
+    .large-banner .banner-content {
+        top: 15%;
+        left: 5%;
+        max-width: 90%;
+    }
+    .large-banner h2 {
+        font-size: 30px;
+    }
+    .side-banners {
+        flex: none;
+        width: 100%;
+        flex-direction: row; /* Keep small banners side-by-side on tablets */
+        height: auto;
+    }
+    .small-banner {
+        width: 50%;
+        height: 200px;
+        min-height: auto;
+    }
+    .small-banner:first-child {
+        margin-right: 10px;
+    }
+
+    /* Categories section responsive adjustments */
+    .categories-section {
+        margin: 30px;
+        padding: 30px;
+    }
+    .categories-section h2 {
+        font-size: 26px;
+        padding-left: 0; /* Remove left padding for smaller screens */
+        text-align: center; /* Center title on tablets */
+    }
+    .categories-grid {
+        justify-content: center; /* Center the grid items when fewer columns */
+    }
+    .category-card {
+        /* 4 items per row on tablets */
+        width: calc(25% - 15px); /* (100% / 4) - (gap * (3/4)) -> (100/4) - (20 * 3/4) */
+    }
+    .category-card img {
+        width: 80px;
+        height: 80px;
+    }
+    .category-card h4 {
+        font-size: 15px;
+    }
+    .category-card p {
+        font-size: 12px;
+    }
+}
+
+/* Mobile devices (up to 767px) */
+@media (max-width: 767px) {
+    .front-page {
+        padding: 0px 15px;
+    }
+    .hero-banner-section {
+        padding: 20px 15px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .large-banner {
+        min-height: 200px;
+    }
+    .large-banner .banner-content {
+        top: 10%;
+        left: 5%;
+        max-width: 90%;
+        padding: 15px;
+    }
+    .large-banner .tagline {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    .large-banner h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+    .large-banner p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    .large-banner button {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+    .side-banners {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .small-banner {
+        width: 100%;
+        height: 180px;
+        min-height: auto;
+    }
+    .small-banner .banner-content {
+        top: 15px;
+        left: 15px;
+        padding-right: 15px;
+    }
+    .small-banner .label {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+    .small-banner h4 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    .small-banner a {
+        font-size: 12px;
+    }
+
+    /* Categories section responsive adjustments */
+    .categories-section {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+    .categories-section h2 {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+    .category-grid {
+        gap: 15px;
+    }
+    .category-card {
+        /* 2 items per row on mobile */
+        width: calc(50% - 7.5px); /* (100% / 2) - (gap * (1/2)) -> (100/2) - (15 * 1/2) */
+        padding: 15px;
+    }
+    .category-card img {
+        width: 70px;
+        height: 70px;
+        padding: 5px;
+    }
+    .category-card h4 {
+        font-size: 14px;
+    }
+    .category-card p {
+        font-size: 11px;
+    }
+}
+
   
   /* FIXED: valid position + correct layering */
+  .deal-product-section{
+    margin: 20px;
+  }
+
   .deal-image {
     position: absolute; /* Corrected from invalid "center center" */
     top: 0;

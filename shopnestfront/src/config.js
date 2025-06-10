@@ -1,1 +1,2 @@
-export const BASE_URL = "https://shopnest-api.vercel.app/api";
+// config.js
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;

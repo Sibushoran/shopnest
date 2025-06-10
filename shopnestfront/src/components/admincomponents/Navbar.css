@@ -1,0 +1,46 @@
+/* Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Lato', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  
+}
+
+.navbar-logo a {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fc8019;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #fc8019;
+}
+
+.admin-dropdown .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

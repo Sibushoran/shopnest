@@ -3,9 +3,8 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #212121; /* Dark text */
+  background-color: #ffffff !important; /* Light background */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,26 +12,39 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
+  background-color: #ffffff; /* Light background for body */
+  color: #212121; /* Ensure text is dark in body */
+}
+
+/* Optional: container class for layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  color: #1a73e8; /* Clean blue link color */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1558b0;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #111111; /* Ensures headings are bold and clear */
 }
 
 button {
@@ -42,27 +54,20 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #e0e0e0; /* Light button */
+  color: #212121;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: #1a73e8;
+  background-color: #d6e4ff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/* REMOVE dark theme detection completely */

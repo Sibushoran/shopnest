@@ -62,9 +62,6 @@ const Navbar = () => {
           <Link to="/login" className="text-white text-decoration-none">
             <FaUser className="me-1" /> Sign In / Register
           </Link>
-          <Link to="/admin" className="text-white text-decoration-none">
-    <FaUser className="me-1" /> Admin
-  </Link>
           <FaFacebookF className="text-white" />
           <FaLinkedinIn className="text-white" />
         </div>
@@ -200,17 +197,11 @@ const Navbar = () => {
               </li>
             </ul>
             <Link
-              to="/user-login"
+              to="/login"
               className="btn btn-outline-light rounded-pill mt-3 mt-md-0"
             >
               <FaUser className="me-2" /> Login
             </Link>
-            <Link
-  to="/login"
-  className="btn btn-warning rounded-pill mt-3 mt-md-0 ms-md-2"
->
-  Admin
-</Link>
           </div>
         </div>
       </nav>
@@ -249,9 +240,6 @@ const Navbar = () => {
             <li>
               <Link to="/news" className="text-white d-block py-1">
                 News
-              </Link>
-              <Link to="/News" className="text-white d-block py-1">
-                Newss
               </Link>
             </li>
             <li>

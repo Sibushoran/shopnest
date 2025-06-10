@@ -177,7 +177,7 @@ const Front = () => {
           <div className="small-banner orange">
             <img src={banner2} alt="Best Seller Headphone" />
             <div className="banner-content">
-              <span className="label blue">BIG SALE</span>
+              <span className="label ">BIG SALE</span>
               <h4>Best Seller Headphone</h4>
               <a href="#">SHOP NOW</a>
             </div>
@@ -185,7 +185,7 @@ const Front = () => {
           <div className="small-banner dark">
             <img src={banner3} alt="New Laptop Selection" />
             <div className="banner-content">
-              <span className="label red">GOOD PRICE</span>
+              <span className="label ">GOOD PRICE</span>
               <h4>New Laptop Selection</h4>
               <a href="#">SHOP NOW</a>
             </div>

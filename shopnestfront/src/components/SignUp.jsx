@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { BASE_URL } from '../config';
+
 import './SignUp.css'; // Add this import
 
 const SignUp = () => {
@@ -20,7 +20,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post('https://shopnest-roan.vercel.app/api/auth/signup', {
+      const response = await axios.post('http://localhost:5000/api/auth/signup', {
         email,
         password,
       });

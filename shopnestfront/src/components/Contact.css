@@ -1,4 +1,9 @@
+.contact-container
+{
+    margin: 80px;
+}
 .contact-content {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,52 +11,64 @@
     margin-bottom: -150px;
   }
   
-  .contact-card{
-    position: relative;
-    width: 100%;
-    height: 380px;
-    overflow: hidden;
-    padding: 0px 100px;
-  }
-  
-  .contact-card img{
-      width: 100%;
-      height: 280px;
-      border-radius: 8px;
-  }
-
-  .contact-card h2{
-    font-size: 24px;
-    margin: 10px 0;
-    transform: translateY(-200px);
-    color:white;
-    text-align: center;
-    font-family: "Lexend", sans-serif;
-    font-size: 50px;
-    margin-left: 45px;
-    font-weight: bold;
+  .contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: -100px;
 }
 
-.breadcrumb{
-    transform: translateY(-200px);
-    color:white;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 18px;
-    margin-left: 630px;
-    font-family: "Lexend", sans-serif;
-    font-weight: 400;
+.contact-card {
+  position: relative;
+  width: 87%;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 0;
 }
 
-.breadcrumb  a{
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 17px;
-    font-family: "Lexend", sans-serif;
-    font-weight: 400;
+.contact-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.breadcrumb .home{
-    color:#c5c3c3;
+.contact-card h2 {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-family: "Lexend", sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.breadcrumb {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Lexend", sans-serif;
+  font-weight: 400;
+  z-index: 2;
+}
+
+.breadcrumb a {
+  color: white;
+  text-decoration: none;
+  margin: 0 8px;
+  font-size: 17px;
+  font-family: "Lexend", sans-serif;
+}
+
+.breadcrumb .home {
+  color: #c5c3c3;
 }
