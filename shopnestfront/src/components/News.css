@@ -273,3 +273,155 @@
   background-color: #007bff;
   font-weight: bold;
 }
+@media (max-width: 1024px) {
+  .news-layout {
+    padding-left: 40px;
+    gap: 32px;
+  }
+
+  .news-date {
+    left: 240px;
+  }
+
+  .news-image {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-layout {
+    flex-direction: column;
+    padding-left: 0;
+    gap: 24px;
+  }
+
+  .news-main {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .news-image {
+    height: 250px;
+  }
+
+  .news-date {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+  }
+
+  .news-content {
+    padding: 20px;
+  }
+
+  .news-title {
+    font-size: 20px;
+  }
+
+  .news-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .news-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .news-readmore button {
+    width: 100%;
+  }
+
+  .news-sidebar {
+    position: static;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .sidebar-post-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .posts-img img {
+    width: 100%;
+    height: auto;
+  }
+
+  .sidebar-section h3 {
+    font-size: 16px;
+  }
+
+  .post-title {
+    font-size: 13px;
+  }
+
+  .sidebar-comment-item {
+    padding: 10px 12px;
+  }
+
+  .comment-text {
+    font-size: 13px;
+  }
+
+  .tags-container {
+    justify-content: center;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pagination-button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-page {
+    padding: 20px 12px;
+    min-width: unset;
+  }
+
+  .news-title {
+    font-size: 18px;
+  }
+
+  .news-meta {
+    font-size: 13px;
+  }
+
+  .news-description {
+    font-size: 13px;
+  }
+
+  .news-readmore button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .sidebar-search input {
+    padding: 8px 36px 8px 12px;
+    font-size: 13px;
+  }
+
+  .sidebar-section p,
+  .sidebar-section li {
+    font-size: 13px;
+  }
+
+  .tag-button {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+
+  .pagination-button {
+    font-size: 13px;
+  }
+}
+html, body {
+  overflow-x: hidden;
+}
