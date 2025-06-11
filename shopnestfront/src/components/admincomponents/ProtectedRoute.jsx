@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
-const BACKEND_URL =  "http://localhost:5000";
+const BACKEND_URL =  "https://u-design-one.vercel.app";
 
 const ProtectedRoute = ({ children }) => {
   const [loading, setLoading] = useState(true);

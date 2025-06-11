@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './ProductList.css';
 
-const BACKEND_URL =  "http://localhost:5000";
+const BACKEND_URL =  "https://u-design-one.vercel.app";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);

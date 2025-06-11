@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BACKEND_URL = "http://localhost:5000"; 
+const BACKEND_URL = "https://u-design-one.vercel.app"; 
 
 
 const LoginPage = () => {
