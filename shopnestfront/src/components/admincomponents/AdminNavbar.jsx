@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 
-const BACKEND_URL = "https://u-design-one.vercel.app"; 
+const BACKEND_URL = "http://localhost:5000"; 
 
 const Navbar = () => {
   const { pathname } = useLocation();
