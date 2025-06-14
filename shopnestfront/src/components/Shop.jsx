@@ -18,17 +18,16 @@ const Shop = () => {
   const [priceRange, setPriceRange] = useState([40, 1500]);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedRatings, setSelectedRatings] = useState([]);
-  const [selectedColors, setSelectedColors] = useState([]);
+
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [showFilters, setShowFilters] = useState(true);
 
-  const [promoBanners, setPromoBanners] = useState([]);
-  const [promo50Off, setPromo50Off] = useState({});
+
   const [categories, setCategories] = useState([]);
-  const [trendingProducts, setTrendingProducts] = useState([]);
+
   const [allBrands, setAllBrands] = useState([]);
-  const [allColors, setAllColors] = useState([]);
+
   const [sortOrder, setSortOrder] = useState("default");
 
   const ratingRanges = [
@@ -61,12 +60,11 @@ const Shop = () => {
         setProducts(productsWithCloudinaryImages);
         setFilteredProducts(productsWithCloudinaryImages);
 
-        setPromoBanners(data.promoBanners || []);
-        setPromo50Off(data.promo50Off || {});
+ 
         setCategories(data.categories || []);
-        setTrendingProducts(data.trendingProducts || []);
+    
         setAllBrands(data.brands || []);
-        setAllColors(data.colors || []);
+
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -146,13 +144,7 @@ const Shop = () => {
     );
   };
 
-  const handleColorChange = (e, color) => {
-    const isChecked = e.target.checked;
-    setSelectedColors((prev) =>
-      isChecked ? [...prev, color] : prev.filter((c) => c !== color)
-    );
-  };
-
+ 
   const handleCategoryChange = (e, category) => {
     const isChecked = e.target.checked;
     setSelectedCategories((prev) =>
@@ -181,9 +173,7 @@ const Shop = () => {
       );
     }
 
-    if (selectedColors.length > 0) {
-      filtered = filtered.filter((p) => selectedColors.includes(p.color));
-    }
+  
 
     if (selectedCategories.length > 0) {
       filtered = filtered.filter((p) => selectedCategories.includes(p.category));
