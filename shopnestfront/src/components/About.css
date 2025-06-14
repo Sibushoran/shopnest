@@ -10,6 +10,10 @@ body {
 
   margin-bottom: -100px;
 }
+.about-container 
+{
+  padding: 2rem;
+}
 
 .about-card {
   border-radius: 8px;
@@ -50,6 +54,7 @@ body {
   align-items: center;
   padding: 20px;
   margin-bottom: 50px;
+  margin-top: 100px;
 }
 
 .text-side {
@@ -326,68 +331,94 @@ body {
   background-color: #f6f6f6;
 }
 
+/* Last Card Section */
 .last-card {
-  border-radius: 8px;
-  padding: 20px;
-  margin: 10px;
+  position: relative;
+  border-radius: 16px;
+  padding: 0;
+  margin: 20px auto;
   width: 80%;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.last-card:hover {
+  transform: scale(1.01);
 }
 
 .last-card img {
   width: 100%;
-  height: 220px;
-  border-radius: 8px;
-  transform: scale(1);
+  height: 340px;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 .last-card h3 {
-  font-size: 32px;
-  font-weight: bold;
-  margin: 10px 0;
-  transform: translateY(-170px);
-  color: white;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
   text-align: center;
-  margin-left: 45px;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+  margin: 0;
 }
 
-/* Icon info row */
+/* Icon Info Section */
 .icon-info-section {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 40px 100px;
-  border-top: 1px solid #eee;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 5%;
+  border-top: 1px solid #e6e6e6;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  background-color: #f9f9f9;
 }
 
 .icon-info-box {
   display: flex;
-  align-items: center;
-  gap: 15px;
-  max-width: 260px;
-  margin: 10px;
+  align-items: flex-start;
+  gap: 18px;
+  max-width: 280px;
+  margin: 20px;
+  transition: transform 0.3s ease;
+}
+
+.icon-info-box:hover {
+  transform: translateY(-4px);
 }
 
 .icon-info-box i {
-  font-size: 45px;
-  color: #007bff;
-  border: 1px solid #007bff;
+  font-size: 36px;
+  color: #0056b3;
+  background-color: #eaf3ff;
   border-radius: 50%;
-  padding: 20px 18px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  box-shadow: 0 4px 10px rgba(0, 86, 179, 0.1);
 }
 
 .icon-info-box h4 {
-  margin: 0;
+  margin: 0 0 4px;
   font-size: 18px;
   font-weight: 600;
+  color: #222;
 }
 
 .icon-info-box p {
-  margin: 4px 0 0;
-  color: #666;
+  margin: 0;
   font-size: 14px;
+  color: #555;
+  line-height: 1.4;
 }
+
 /* Tablets (up to 1024px) */
 @media (max-width: 1024px) {
   .about-card h2,

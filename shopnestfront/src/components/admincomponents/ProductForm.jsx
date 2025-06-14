@@ -1,7 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 
-const BACKEND_URL =  "http://localhost:5000";
+// Dynamically pull from env (supports Vite and fallback to localhost)
+const BACKEND_URL = import.meta.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+
+// Cloudinary credentials
+const CLOUD_NAME = "dxmhwf0ax";
+const UPLOAD_PRESET = "shopnest";
 
 function ProductForm() {
   const [formData, setFormData] = useState({
@@ -19,9 +24,6 @@ function ProductForm() {
   const [preview, setPreview] = useState(null);
   const [submitting, setSubmitting] = useState(false);
 
-  const CLOUD_NAME = "dxmhwf0ax";         // Your Cloudinary cloud name
-  const UPLOAD_PRESET = "shopnest";       // Your unsigned upload preset
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -36,7 +38,6 @@ function ProductForm() {
     const data = new FormData();
     data.append("file", file);
     data.append("upload_preset", UPLOAD_PRESET);
-    data.append("cloud_name", CLOUD_NAME);
 
     const res = await axios.post(
       `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
@@ -58,7 +59,6 @@ function ProductForm() {
       setSubmitting(true);
 
       let imageUrl = "";
-
       if (formData.image) {
         imageUrl = await uploadToCloudinary(formData.image);
       }
@@ -75,10 +75,8 @@ function ProductForm() {
         image: imageUrl,
       };
 
-      // Use backend URL from env
       await axios.post(`${BACKEND_URL}/api/products`, payload);
-
-      alert("✅ Product added!");
+      alert("✅ Product added successfully!");
 
       setFormData({
         name: "",
@@ -93,8 +91,8 @@ function ProductForm() {
       });
       setPreview(null);
     } catch (err) {
-      console.error("❌ Failed to add product:", err);
-      alert("Failed to add product. Check console for errors.");
+      console.error("❌ Error adding product:", err);
+      alert("Failed to add product.");
     } finally {
       setSubmitting(false);
     }
@@ -124,8 +122,7 @@ function ProductForm() {
           justifyContent: "center",
           alignItems: "center",
           background: "linear-gradient(135deg, #121212, #1a1a1a)",
-          fontFamily:
-            "'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+          fontFamily: "'Poppins', 'Segoe UI', sans-serif",
           padding: "2rem",
         }}
       >
@@ -143,6 +140,7 @@ function ProductForm() {
             boxShadow: "0 15px 40px rgba(255, 136, 0, 0.25)",
           }}
         >
+          {/* Left Inputs */}
           <div
             style={{
               flex: "1 1 300px",
@@ -170,6 +168,7 @@ function ProductForm() {
             ))}
           </div>
 
+          {/* Right Inputs */}
           <div
             style={{
               flex: "1 1 300px",
@@ -196,6 +195,7 @@ function ProductForm() {
               />
             ))}
 
+            {/* File Upload */}
             <input
               type="file"
               accept="image/*"
@@ -211,7 +211,8 @@ function ProductForm() {
               }}
             />
 
-            {preview ? (
+            {/* Image Preview */}
+            {preview && (
               <div
                 style={{
                   marginTop: "1rem",
@@ -226,9 +227,10 @@ function ProductForm() {
                   style={{ width: "100%", objectFit: "cover" }}
                 />
               </div>
-            ) : null}
+            )}
           </div>
 
+          {/* Submit Button */}
           <div
             style={{
               width: "100%",

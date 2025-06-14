@@ -174,16 +174,22 @@ const Front = () => {
         </div>
 
         <div className="side-banners">
-          <div className="small-banner orange">
-            <img src={banner2} alt="Best Seller Headphone" />
+          <div className="small-banner ">
+            <video className="banner-video" autoPlay loop muted playsInline>
+    <source src="/assets/main.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
             <div className="banner-content">
               <span className="label ">BIG SALE</span>
               <h4>Best Seller Headphone</h4>
               <a href="#">SHOP NOW</a>
             </div>
           </div>
-          <div className="small-banner dark">
-            <img src={banner3} alt="New Laptop Selection" />
+          <div className="small-banner ">
+            <video className="banner-video" autoPlay loop muted playsInline>
+    <source src="/assets/main2.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
             <div className="banner-content">
               <span className="label ">GOOD PRICE</span>
               <h4>New Laptop Selection</h4>

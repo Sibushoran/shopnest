@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-
-const BACKEND_URL = "http://localhost:5000"; 
+const BACKEND_URL = import.meta.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
 const Navbar = () => {
   const { pathname } = useLocation();
@@ -42,15 +41,12 @@ const Navbar = () => {
   if (!isAuthenticated) return null;
 
   return (
-    <nav className="navbar">
+    <nav className="admin-navbar">
       <div className="navbar-logo">
         <Link to="/">Admin Dashboard</Link>
       </div>
 
       <div className="navbar-links">
-        <Link to="/add-product" className={`nav-link ${pathname === "/add-product" ? "active" : ""}`}>
-          Add Product
-        </Link>
         <Link to="/add-product" className={`nav-link ${pathname === "/add-product" ? "active" : ""}`}>
           Add Product
         </Link>
@@ -60,10 +56,9 @@ const Navbar = () => {
         <Link to="/users" className={`nav-link ${pathname === "/users" ? "active" : ""}`}>
           User List
         </Link>
-        <Link to="/" className={`nav-link ${pathname === "/users" ? "active" : ""}`}>
+        <Link to="/" className={`nav-link ${pathname === "/" ? "active" : ""}`}>
           Go to Home
         </Link>
-
 
         <div
           className="admin-dropdown"

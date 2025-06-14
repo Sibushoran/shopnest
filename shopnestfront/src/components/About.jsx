@@ -1,22 +1,13 @@
 import React from 'react';
 import './About.css';
+
+import AboutBanner from "../components/AboutBanner";
 import reviewsData from '../data/reviewsData';
 
 export const About = () => {
   return (
     <div className="about-container">
-      <div className="about-content">
-        <div className="about-card">
-          <img src="/assets/about-1.jpg" alt="about" />
-          <h2>About Us</h2>
-          <p>
-            Facilisi nullam vehicula ipsum a arcu cursus vitae congue.<br /> 
-            Pretium quam vulputate dignissim suspendisse in est. Sit<br />
-            amet consectetur adipiscing elit ut aliquam purus sit.<br />
-            Porttitor rhoncus dolor.
-          </p>
-        </div>
-      </div>
+     <AboutBanner />
 
       <div className="text-image-section">
         <div className="text-side">

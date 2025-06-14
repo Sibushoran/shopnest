@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import ShopBanner from "../components/ShopBanner";
 import "./Shop.css";
 
 const Shop = () => {
@@ -201,13 +202,7 @@ const Shop = () => {
   return (
     <div className="shop-page">
       {/* Banner */}
-      <div className="about-content">
-        <div className="about-card">
-          <img src="/assets/about-1.jpg" alt="about" />
-          <h2>Shop</h2>
-          <p>Home &gt; Shop</p>
-        </div>
-      </div>
+      <ShopBanner />
 
       <div className="filter-toggle-bar">
         <button className="toggle-filters-btn" onClick={() => setShowFilters(!showFilters)}>

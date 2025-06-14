@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BACKEND_URL = "http://localhost:5000"; 
-
+// Use backend URL from .env with a local fallback
+const BACKEND_URL = import.meta.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');

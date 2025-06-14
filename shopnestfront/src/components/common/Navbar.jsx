@@ -162,14 +162,15 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link to="/about" className="nav-link text-white">
-                  About Us
-                </Link>
-              </li>
+              
               <li>
                 <Link to="/shop" className="nav-link text-white">
                   Shop
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="nav-link text-white">
+                  About Us
                 </Link>
               </li>
               <li>
@@ -236,14 +237,15 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            <li>
-              <Link to="/about" className="text-white d-block py-1">
-                About Us
-              </Link>
-            </li>
+            
             <li>
               <Link to="/shop" className="text-white d-block py-1">
                 Shop
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="text-white d-block py-1">
+                About Us
               </Link>
             </li>
             <li>

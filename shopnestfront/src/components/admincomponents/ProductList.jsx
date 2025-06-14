@@ -2,19 +2,24 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './ProductList.css';
 
-const BACKEND_URL =  "http://localhost:5000";
+const BACKEND_URL = import.meta.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        setLoading(true);
         const res = await axios.get(`${BACKEND_URL}/api/products`);
         setProducts(res.data.products || []);
       } catch (err) {
-        console.error("Error fetching products:", err);
+        console.error("❌ Error fetching products:", err);
+        alert("Failed to fetch products. Check console.");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -22,22 +27,27 @@ const ProductList = () => {
   }, [refresh]);
 
   const deleteProduct = async (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this product?");
+    if (!confirmDelete) return;
+
     try {
-      console.log("Attempting to delete product with ID:", id);
       const res = await axios.delete(`${BACKEND_URL}/api/products/${id}`);
-      console.log("Backend response:", res.data);
+      console.log("✅ Deleted:", res.data);
       alert("Product deleted successfully.");
-      setRefresh(!refresh);
+      setRefresh((prev) => !prev);
     } catch (err) {
-      console.error("Error deleting product:", err);
-      alert("Failed to delete product.");
+      console.error("❌ Error deleting product:", err);
+      alert("Failed to delete product. Check console.");
     }
   };
 
   return (
     <div className="product-list">
       <h2>All Products</h2>
-      {products.length === 0 ? (
+
+      {loading ? (
+        <p>Loading...</p>
+      ) : products.length === 0 ? (
         <p>No products found.</p>
       ) : (
         <table>
@@ -54,11 +64,16 @@ const ProductList = () => {
             {products.map((product) => (
               <tr key={product._id}>
                 <td>{product.name || product.title}</td>
-                <td>{product.brand}</td>
-                <td>${product.price}</td>
-                <td>{product.rating}★</td>
+                <td>{product.brand || "-"}</td>
+                <td>${product.price?.toFixed(2) || "0.00"}</td>
+                <td>{product.rating || 0}★</td>
                 <td>
-                  <button onClick={() => deleteProduct(product._id)}>Delete</button>
+                  <button
+                    onClick={() => deleteProduct(product._id)}
+                    className="delete-btn"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
